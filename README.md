@@ -89,7 +89,9 @@ print(f"Equalized image saved as: {output_path}")
 
 ```
 Hasil Output: 
+
 ![HasilHistogram](https://github.com/user-attachments/assets/384ea331-e8a0-4755-8cb8-f29b685bffdf)
+
 Berikut adalah penjelasan singkat tentang cara kerja kode:
 
 1. **Mengunggah dan Memuat Gambar**: Gambar yang diunggah dibaca dan dikonversi menjadi format RGB menggunakan `PIL` dan diubah menjadi array `numpy`.

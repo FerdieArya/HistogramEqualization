@@ -1,5 +1,5 @@
 # HistogramEqualization
-Berikut adalah kodingan untuk Algoritma Equalization :
+Berikut adalah kodingan untuk Algoritma Histogram Equalization :
 ```python
 import cv2
 import numpy as np
@@ -88,9 +88,14 @@ cv2.imwrite(output_path, cv2.cvtColor(equalized_image, cv2.COLOR_RGB2BGR))
 print(f"Equalized image saved as: {output_path}")
 
 ```
-Penjelasan Kode <br>
-Kernel/Filter (H): Ini adalah matriks yang digunakan untuk konvolusi, yang menentukan transformasi yang diterapkan pada citra. <br>
-Citra Input (X): Ini adalah matriks citra asli yang akan dikenakan operasi konvolusi. <br>
-Citra Output (Y): Matriks ini menyimpan hasil dari konvolusi, diinisialisasi dengan nilai nol. <br>
-Struktur Perulangan: Program mengiterasi setiap piksel dalam matriks input dan menerapkan filter dengan menghitung z(x, y) sesuai dengan algoritma. <br>
-Hasil: Y berisi nilai-nilai hasil dari konvolusi.
+Berikut adalah penjelasan singkat tentang cara kerja kode:
+
+1. **Mengunggah dan Memuat Gambar**: Gambar yang diunggah dibaca dan dikonversi menjadi format RGB menggunakan `PIL` dan diubah menjadi array `numpy`.
+2. **Konversi ke Grayscale**: Gambar RGB diubah menjadi grayscale dengan menghitung rata-rata nilai RGB setiap piksel.
+3. **Menghitung Histogram**: Histogram intensitas piksel pada gambar grayscale dihitung.
+4. **Menghitung CDF**: Fungsi distribusi kumulatif (CDF) dihitung berdasarkan histogram untuk membantu distribusi intensitas yang lebih merata.
+5. **Peningkatan Histogram**: Nilai piksel pada gambar grayscale dipetakan ulang berdasarkan CDF untuk meningkatkan kontras.
+6. **Menerapkan ke Gambar RGB**: Nilai grayscale yang telah ditingkatkan diterapkan ke gambar RGB, menjadikannya gambar grayscale dengan kontras yang lebih baik.
+7. **Menampilkan dan Menyimpan Hasil**: Gambar asli dan yang telah disesuaikan ditampilkan bersama histogramnya, dan gambar yang telah disesuaikan disimpan.
+
+Secara keseluruhan, kode ini melakukan **peningkatan kontras gambar** menggunakan teknik histogram equalization.
